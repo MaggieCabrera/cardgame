@@ -35,7 +35,7 @@ class BlizzardApi {
 
     public function cardList(string $type = 'minion', int $page = 1) {
 
-        $api_url ='https://us.api.blizzard.com/hearthstone/cards?locale=en_US&collectible=1&type='.$type.'&page='.$page.'&pageSize=5&sort=name&order=desc';
+        $api_url ='https://eu.api.blizzard.com/hearthstone/cards?locale=en_US&collectible=1&type='.$type.'&page='.$page.'&pageSize=5&sort=name&order=desc';
         $response = $this->http->request('GET', $api_url);
         $list = json_decode($response->getBody()); 
 

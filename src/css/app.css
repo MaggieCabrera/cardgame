@@ -1,0 +1,53 @@
+body {
+  padding: 0;
+  margin: 0;
+  font-family: 'Montserrat', arial, sans-serif;
+  font-size: 16px;
+  background: black url(../img/AoO_Board.jpg) center center no-repeat;
+  background-size: contain;
+  height: 100vh;
+  width: 100vw;
+  overflow-y: auto;
+  overflow-x: hidden; }
+
+.decks-container {
+  display: flex;
+  flex-direction: column; }
+
+.wrapper {
+  width: 100%;
+  height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.card-container {
+  max-width: 15vw;
+  margin: 0 0.5rem;
+  position: relative; }
+
+.front,
+.back {
+  box-sizing: border-box;
+  backface-visibility: hidden;
+  transition: transform .8s ease; }
+  .front img,
+  .back img {
+    width: 100%;
+    height: auto; }
+
+.back {
+  position: absolute;
+  bottom: 1%;
+  left: -1%;
+  transform: rotateY(180deg) scale(1.11); }
+
+.card-container {
+  perspective: 75rem; }
+  .card-container.active .front {
+    transform: rotateY(-180deg); }
+  .card-container.active .back {
+    transform: rotateY(0deg) scale(1.11); }
+
+.my-cards .card-container {
+  cursor: pointer; }

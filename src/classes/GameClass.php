@@ -2,6 +2,7 @@
 class Game {
 
     public $deck;
+    public $opponent_deck;
     public $card_count;
 
     private $page_max;
@@ -11,7 +12,6 @@ class Game {
         $this->setPageMax();
         $this->createDeck();
     }
-
 
     /**
      * set Page Max, the maximum page we can access via the api
@@ -34,12 +34,14 @@ class Game {
     }
 
     /**
-     * Creates a deck of random cards. The amount of cards is determined by the value of card_count
+     * Creates two decks of random cards. One deck for the player, one for the opponent. 
+     * The amount of cards is determined by the value of card_count
      *
      */
     public function createDeck () {
         for ($i=0; $i < $this->card_count; $i++) { 
             $this->deck[] = $this->getRandomCard();
+            $this->opponent_deck[] = $this->getRandomCard();
         }
     }
 
@@ -50,6 +52,15 @@ class Game {
      */
     public function get_deck () {
         return $this->deck;
+    }
+
+    /**
+     * Gets the opponent's cards generated for the game
+     *
+     * @return array 
+     */
+    public function get_opponent_deck () {
+        return $this->opponent_deck;
     }
 
     /**
