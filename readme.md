@@ -6,6 +6,10 @@ TODO explain game
 
 I'm using docker for this project, along with PHPUnit for tests. To install the vendor files with composer please use the command:
 
+```
+sh install.sh
+```
+
 To run the tests use the command:
 
 ```
