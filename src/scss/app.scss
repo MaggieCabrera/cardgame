@@ -1,8 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Volkhov:wght@700&display=swap');
 
 body {
     padding: 0;
     margin: 0;
-    font-family: 'Montserrat', arial, sans-serif;
+    font-family: 'Volkhov', arial, sans-serif;
     font-size: 16px;
     background: black url(../img/AoO_Board.jpg) center center no-repeat;
     background-size: contain;
@@ -10,11 +11,19 @@ body {
     width: 100vw;
     overflow-y: auto;
     overflow-x: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .decks-container {
     display: flex;
     flex-direction: column;
+    height: 50vh;
+    max-height: 50vw;
+    width: 90vw;
+    max-width: 90vh;
+    margin-top: -6vh;
 }
 
 .wrapper {
@@ -59,8 +68,76 @@ body {
     }
 }
 
-.my-cards {
-    .card-container {
+.my-cards:not(.selected) {
+    .card-container:not(.active) {
+        transition: transform .4s ease-in-out;
         cursor: pointer;
+        &:before {
+            content: '';
+            transition: all .4s ease-in-out;
+        }
+        &:hover {
+            transform: scale(1.1);
+            &:before {
+                position: absolute;
+                left: 5%;
+                right: 5%;
+                top: 5%;
+                bottom: 5%;
+                z-index: -1;
+                animation: glow 1s infinite; 
+            }
+        }
     }   
+}
+
+.message {
+    text-align: center;
+    color: white;
+    font-size: 7rem;
+    text-shadow: 0 0 0.5rem #000;
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    z-index: 1000;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    &.active {
+        top: 50%;
+    }
+    & > div {
+        opacity: 0;
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        transition: opacity .4s ease-in-out;
+        &.active {
+            top: 50%;
+            transform: translate(-50%, -50%);
+            opacity: 1;
+        }
+    }
+}
+
+@keyframes glow {
+    0% {
+        box-shadow: 
+            0 0 1rem #FFF,
+            0 0 2rem #F8A50E;
+    }
+  
+    50% {
+        box-shadow: 
+            0 0 1.5rem #FFF,
+            0 0 2.5rem rgb(247, 162, 4);
+    }
+
+    100% {
+        box-shadow:
+            0 0 1rem #FFF,
+            0 0 2rem #F8A50E;
+    }
 }

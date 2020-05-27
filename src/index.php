@@ -6,17 +6,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Card Game</title>
-    <link href="https://fonts.googleapis.com/css?family=Montserrat:400,500,600&display=swap" rel="stylesheet"> 
+    <title>Card Game</title> 
     <link rel="stylesheet" href="css/app.css">
 </head>
 <body>
+
+    <div class="message">
+        <div class="success">Victory</div>
+        <div class="defeat">Defeat</div>
+        <div class="tie">Tie</div>
+    </div>
 
     <div class="decks-container">
 
         <div class="wrapper their-cards">
         <?php foreach($opponent_deck as $index => $card): ?>
-            <div class="card-container" data-opponentcard-id="<?php echo $index?>">
+            <div class="card-container" data-opponentcard-id="<?php echo $index?>" data-attack="<?php echo $card->attack?>" data-health="<?php echo $card->health?>">
                 <div class="back">
                     <img src="<?php echo $card->image?>" alt="">
                 </div>
@@ -29,7 +34,7 @@
 
         <div class="wrapper my-cards">
         <?php foreach($my_deck as $index => $card): ?>
-            <div class="card-container" data-mycard-id="<?php echo $index?>">
+            <div class="card-container" data-mycard-id="<?php echo $index?>" data-attack="<?php echo $card->attack?>" data-health="<?php echo $card->health?>">
                 <div class="back">
                     <img src="<?php echo $card->image?>" alt="">
                 </div>
