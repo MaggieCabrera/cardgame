@@ -12,7 +12,15 @@ body {
   overflow-x: hidden;
   display: flex;
   justify-content: center;
-  align-items: center; }
+  align-items: center;
+  flex-direction: column; }
+
+#mocha {
+  background-color: black;
+  position: absolute;
+  right: 20px;
+  top: 40%;
+  color: white; }
 
 .decks-container {
   display: flex;
